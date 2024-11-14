@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+    <title>Metodos numericos</title>
+    <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Métodos numéricos</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Métodos - UNITAU</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Repositório</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="help.html">Ajuda</a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Métodos
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="metodos_html/bolzano.html">Bolzano</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/bisseccao.html">Bissecção</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/newton_raphson.html">Newton-Raphson</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/secante.html">Secante</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="metodos_html/elim_gauss.html">Eliminação de Gauss</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/gauss_jacobi.html">Gauss-Jacobi</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/gauss_seidel.html">Gauss-Seidel</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="metodos_html/lagrange.html">Lagrange</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/interpolador_newton.html">Newton-Gregory</a></li>
+                    <li><a class="dropdown-item" href="metodos_html/interpolador_newton_inv.html">Inversa</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="metodos_html/extrapolacao.html">Métodos Mínimos Quadrados</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="metodos_html/trapezoid.html">Trapézio composto</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form> -->
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-5">
+        <!-- Header -->
+         <br>
+        <header class="mb-4">
+            <h1 class="text-center">Ajuda - Métodos numéricos</h1>
+            <p class="text-center text-muted">Aqui você encontrará a explicação sobre como formatar as funções de input dos métodos e uma breve descrição dos métodos disponíveis.</p>
+        </header>
+        
+        <!--Section 1: Como acessar os métodos-->
+        <section class="mb-5">
+            <h2>Como Acessar os Métodos</h2>
+            <p>Para acessar os métodos, basta clicar no menu hambúrguer (<i class="bi bi-list"></i>), no canto superior direito da tela, ir até o menu <strong>Métodos</strong> e selecionar o método desejado.</p>
+        </section>
+
+        <!-- Section 2: Como Formatar Funções -->
+        <section class="mb-5">
+            <h2>Como Formatar as Funções</h2>
+            <p>Para garantir que o código interprete corretamente as funções matemáticas, é necessário escrever todas as variáveis e seus multiplicadores explicitamente. Por exemplo, se a função for \( f(x) = x^3 - 9x + 3 \), ela deve ser escrita da seguinte maneira:</p>
+            <ul>
+                <li><strong>Exemplo de formato correto:</strong> <code>x^3 - 9*x + 3</code></li>
+                <li><strong>Evite:</strong> <code>x^3 - 9x + 3</code></li>
+            </ul>
+            <p>Alguns termos matemáticos são interpretados diferentemente da forma que se escreve. Segue abaixo uma lista de termos para se construir uma função:</p>
+            <ul>
+                <li><strong>Logaritmo:</strong> Para representar logaritmos, você pode utilizar <code>log(n)</code> ou <code>ln(n)</code> para representar o logaritmo natural \( \ln \).
+                <br> Para representar o logaritmo de base 10 \( \log \), deve-se utilizar <code>log10(n)</code>.</li>
+                <li><strong>Exponêncial:</strong> Para realizar a operação exponencial \( e^x \), deve-se inserir <code>exp(n)</code> na função. Caso queira apenas a 
+                <br> constante de Euler \( e \), pode-se utilizar <code>e</code>, com o valor aproximado de 2,71828.</li>
+                <li><strong>Raiz quadrada:</strong> Para realizar a operação \( \sqrt n \), deve-se usar o operador <code>sqrt(n)</code>.</li>
+                <li><strong>Funções trigonométricas:</strong> Para realizar operações com  \( \sin \) ou \( \cos \), deve-se usar os operadores <code>sin(n)</code> ou <code>cos(n)</code> na função.</li>
+                <br>
+                <li><strong>Exemplo de construçao: </strong><code>(2200 * ln((sin(90))/(1.6*10^5 - 2680*x)) - exp(10) * x) - sqrt(144)</code></li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Métodos -->
+        <section>
+            <h2>Breve Explicação sobre os Métodos</h2>
+            <p>Abaixo você encontrará uma breve explicação sobre os métodos disponíveis:</p>
+
+            <div class="accordion" id="metodosAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            Método 1: Teorema de Bolzano
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            É uma  técnica usada para encontrar raízes de funções. Se você tem uma função contínua e sabe que ela assume valores opostos nas extremidades de um intervalo \( [a, b] \), 
+                            então você pode ter certeza de que existe pelo menos uma raiz dentro desse intervalo. Ou seja, se \( f(a) \cdot f(b) < 0 \), a função cruza o eixo \( x \) em algum ponto entre \( a \) e 
+                            \( b \).  Esse método ajuda a isolar essas raízes para poder encontrá-las com mais precisão.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            Método 2: Método da Bissecção ou Dicotomia
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método de bisseção é uma técnica usada para encontrar a raiz de uma função em um intervalo \( [a, b] \) encontrada com o método de Bolzano. Após identificar esse intervalo, o método consiste em dividir o intervalo ao meio 
+                            repetidamente até encontrar a solução com a precisão desejada. 
+                            <br><br>
+                            O procedimento básico é:
+                            <br>1. <strong>Escolher o intervalo inicial:</strong> \( [a, b] \)
+                            <br>2. <strong>Calcular o ponto médio \( m_k \):</strong> A cada iteração, o ponto médio é calculado usando a fórmula:
+                            <div>
+                                \[
+                                m_k = \frac{a + b}{2}
+                                \]
+                            </div>
+                            <br>3. <strong>Verificar o critério de parada:</strong> Compara-se o valor \( m_k \) com os limites \( a \) e \( b \), e o processo é repetido até que um critério de parada seja atendido. Os critérios comuns são:
+                            <ul>
+                                <li>\( |m_k - b| < tolerância \)</li>
+                                <li>\( |a - m_k| < tolerância \)</li>
+                                <li>\( |f(x)| < tolerância \)</li>
+                            </ul>
+                            <br>
+                            No código da nossa calculadora, utilizamos o critério \( |a - m_k| < tolerância \) para determinar quando parar.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            Método 3: Método de Newton-Raphson
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O Método de Newton-Raphson é um método numérico amplamente utilizado para encontrar raízes de uma função \( f(x) = 0 \). Esse método parte de uma condição inicial \( x_0 \),
+                            um valor escolhido dentro do intervalo \( [a, b] \), e itera de forma a aproximar a solução da equação.
+                            <br><br>A fórmula do método é dada por:
+                            <div>
+                                \[
+                                x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}
+                                \]
+                            </div>
+                            <br>Com a fórmula acima, o método utiliza \( x_k \) para calcular o próximo valor \( x_{k+1} \).  Esse processo é repetido até que a diferença entre os valores sucessivos seja suficientemente 
+                            pequena, indicando que o método chegou a uma solução precisa.
+                            <br><br><ul>
+                                <li><strong>Critério de convergência:</strong> \( |x_k + 1| < 1\)</li>
+                                <li><strong>Critério de parada:</strong> \( |\text{Erro absoluto}| < tolerância\)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            Método 4: Método da Secante
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O Método das Secantes é um método numérico utilizado para encontrar raízes de uma função \( f(x) = 0 \). Ele é semelhante ao Método de Newton-Raphson, mas resolve o problema da derivada, que 
+                            pode ser difícil de calcular ou inexistir, utilizando uma aproximação da derivada. Essa aproximação é feita pelo quociente das diferenças entre dois pontos da função.
+
+                            <br><br>A ideia básica do método é substituir a derivada \( f'(x)\) por uma aproximação do quociente das diferenças entre dois pontos sucessivos \( x_k \) e \( x_{k-1} \), conforme a fórmula:
+                            <div>
+                                \[
+                                f'(x) \approx \frac{f(x_k) - f(x_{k-1})}{x_k - x{k-1}}
+                                \]
+                            </div>
+                            <br> Com essa aproximação, podemos modificar a fórmula de Newton-Raphson para calcular a próxima aproximação \( x_{k-1} \) utilizando os dois valores anteriores:
+                            <div>
+                                \[
+                                x_{k+1} = \frac{x_{k-1} \cdot f(x_k) - x_k \cdot f(x_{k-1})}{f(x_k) - f(x_{k-1})}
+                                \]
+                            </div>
+                            <br>Essa fórmula é conhecida como a equação da Secante.
+                            <br><br>O método das secantes precisa de dois valores iniciais do intervalo \( [x_0, x_1] \).  Com os valores \( x_0\) e \( x_1\), calculamos o próximo ponto \( x_2\) usando a fórmula da secante:
+                            <div>
+                                \[
+                                x_2 = \frac{x_0 \cdot f(x_1) - x_1 \cdot f(x_0)}{f(x_1) - f(x_0)}
+                                \]
+                            </div>
+                            <br> Em seguida, usamos \( x_1\) e \( x_2\) para calcular o próximo valor \( x_3\), e assim por diante, até que o método converge para a raiz.
+                            <br><br>Critérios de parada:
+                            <ul>
+                                <li>\( |x_{k+1} - x_k| < tol\)</li>
+                                <li>\( |f(x_k)| < tol\)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                            Método 5: Eliminação de Gauss
+                        </button>
+                    </h2>
+                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            A eliminação gaussiana, também conhecida como escalonamento, é um método fundamental para resolver sistemas de equações lineares. O objetivo desse processo é transformar o sistema de equações 
+                            em uma forma que seja mais fácil de resolver, geralmente uma matriz triangular (também chamada de matriz escalonada), de onde podemos obter as soluções por meio da substituição regressiva.
+
+                            <br><br> Ela transforma o sistema original de equações em um sistema equivalente, mas mais simples. Isso é feito através de operações elementares nas linhas da matriz que representam o sistema. 
+                            Essas operações não alteram a solução do sistema, apenas simplificam sua forma. As operações elementares permitidas são:
+                            <br><br>
+                            <ol>
+                                <li><strong>Multiplicação de uma linha por uma constante não nula:</strong>
+                                    <ul>
+                                        <li>Exemplo: Multiplicar a linha 1 por 2, \( L_1 \rightarrow 2 \cdot L_1 \)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Substituição de uma linha pela soma dela com múltiplos de outra linha:</strong>
+                                    <ul>
+                                        <li>Exemplo: Substituir a linha 2 por \( L_2 + 3 \cdot L_1 \)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Permutação de duas linhas:</strong>
+                                    <ul>
+                                        <li>Exemplo: Trocar a linha 1 e a linha 2, \( L_1 \leftrightarrow L_2 \)</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <br>Essas operações são feitas até que a matriz esteja em uma forma chamada matriz triangular superior (ou matriz escalonada), onde todos os elementos abaixo da diagonal principal são zeros.
+                            <br><br>Após aplicar as operações elementares, a matriz se torna triangular, ou seja, os elementos abaixo da diagonal principal se tornam zeros. O sistema de equações associado também se transforma 
+                            em um sistema mais simples, onde podemos aplicar a substituição regressiva para encontrar as soluções.
+
+                            <br><br>Por exemplo, considere o sistema de equações lineares:
+                            <div>
+                                \[
+                                \begin{aligned}
+                                    a_1 x + b_1 y + c_1 z &= d_1 \\
+                                    a_2 x + b_2 y + c_2 z &= d_2 \\
+                                    a_3 x + b_3 y + c_3 z &= d_3
+                                \end{aligned}
+                                \]
+                            </div>
+                            <br><br>A matriz aumentada desse sistema seria:
+                            <div>
+                                \[
+                                \left[\begin{array}{ccc|c}
+                                    a_1 & b_1 & c_1 & d_1 \\
+                                    a_2 & b_2 & c_2 & d_2 \\
+                                    a_3 & b_3 & c_3 & d_3
+                                \end{array}\right]
+                                \]
+                            </div>
+                            <br><br>Por meio das operações de eliminação de gauss, transforma-se a matriz em uma forma escalonada superior:
+                            <div>
+                                \[
+                                \left[\begin{array}{ccc|c}
+                                    1 & b'_1 & c'_1 & d'_1 \\
+                                    0 & b'_2 & c'_2 & d'_2 \\
+                                    0 & 0 & c'_3 & d'_3
+                                \end{array}\right]
+                                \]
+                            </div>
+                            <br><br>Agora, deve-se aplicar a substituição regressiva para encontrar os valores de \( x\), \( y\) e \( z\).
+                         </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                            Método 6: Método de Gauss-Jacobi
+                        </button>
+                    </h2>
+                    <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método de Gauss-Jacobi é baseado em atualizações sucessivas de cada incógnita, utilizando uma estimativa inicial para cada valor de \( x\). Em cada iteração, as incógnitas são atualizadas simultaneamente, 
+                            e o processo continua até que a diferença entre as iterações sucessivas seja suficientemente pequena, ou até que o número máximo de iterações seja atingido.
+                            <br><br>Os sistemas lineares tem a forma:
+                            <div>
+                                \[
+                                A \cdot x = b
+                                \]
+                            </div>
+                            <br>Onde \( A\) é uma matriz \( n \times n\), \( x\) é o vetor das incógnitas e \( b\) é o vetor dos termos constantes. O objetivo é encontrar o vetor \( x\), que resolve o sistema.
+                            <br><br>O sistema \( A \cdot x = b\) pode ser escrito de forma mais detalhada como:
+                            <div>
+                                \[
+                            \begin{bmatrix}
+                            a_{11} & a_{12} & \dots & a_{1n} \\
+                            a_{21} & a_{22} & \dots & a_{2n} \\
+                            \vdots & \vdots & \ddots & \vdots \\
+                            a_{n1} & a_{n2} & \dots & a_{nn}
+                            \end{bmatrix}
+                            \begin{bmatrix}
+                            x_1 \\
+                            x_2 \\
+                            \vdots \\
+                            x_n
+                            \end{bmatrix}
+                            =
+                            \begin{bmatrix}
+                            b_1 \\
+                            b_2 \\
+                            \vdots \\
+                            b_n
+                            \end{bmatrix}
+                            \]
+
+                            </div>
+                            <br>O método começa isolando cada incógnita \( x_i\) em  termos das outras incógnitas. Para cada equação, fazemos isso, transformando as equações de \( A \cdot x = b\) em uma forma recursiva:
+                            <div>
+                                \[
+                                x_i^{(k+1)} = \frac{1}{a_{ii}}  \left( b_i - \sum_{j \neq i} a_{ij} x_j^{(k)} \right)
+                                \]
+                            </div>
+                            <br>Ou, equivalentemente:
+                            <div>
+                                \[
+                                x^{(k+1)} = D^{-1}\cdot \left( b - (A - D) \cdot x^{(k)} \right)
+                                \]
+                            </div>
+                            <br>Onde:
+                            <br><ul>
+                                <li>\( D\) é a matriz diagonal de \( A\),</li>
+                                <li>\( A - D\) é a matriz \( A\) sem sua diagonal,</li>
+                                <li>\( x^{(k)} \) é o vetor das soluções na iteração \( k \),</li>
+                                <li>\( b \) é o vetor dos termos constantes.</li>
+                            </ul>
+                            <br><br><strong>Critério de parada:</strong>
+                            <br>O método para quando atingir a condição \( erro < tol\), onde:
+                            <div>
+                                \[
+                                erro = \frac{max( |x^{(k+1)} - x^k| )}{max( |x^{k+1}| )}
+                                \]
+                            </div>
+                            <br>Ou até atingir o número de iterações máxima selecionado.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading7">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                            Método 7: Método de Gauss-Seidel
+                        </button>
+                    </h2>
+                    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método de Gauss-Seidel é uma técnica iterativa usada para resolver sistemas de equações lineares da forma \( A \cdot x = b\).
+                            <br>Esse método é uma variação do método de Gauss-Jacobi, e usa os valores atualizados de \( x_i \) imediatamente na próxima iteração. A principal diferença é que, em Gauss-Seidel, cada valor 
+                            calculado em uma iteração é imediatamente atualizado e usado para calcular os próximos valores. Isso a acelera a convergência em relação ao método de Gauss-Jacobi e diminui o número de iterações necessárias para finalizar.
+                            <br><br>No método, a matriz \( A \) é dividida em três partes:
+                            <br>
+                            <ol>
+                                <li><strong>Parte diagonal \( D \)</strong>: os elementos da diagonal de \( A \)</li>
+                                <li><strong>Parte estritamente inferior \( L \):</strong> os elementos abaixo da diagonal de \( A \)</li>
+                                <li><strong>Parte estritamente superior \( UJ \):</strong>  os elementos acima da diagonal de \( A \)</li>
+                            </ol>
+                            <br><br>Assim, tem-se:
+                            <div>
+                                \[
+                                A = D + L + U
+                                \]
+                            </div>
+                            <br><br>Podemos reescrever o sistema de equações \( A \cdot x = b\) em uma forma iterativa usando \( D + L + U\):
+                            <div>
+                                \[
+                                \left( D + L \right) \cdot x^{(k+1)} = b - U \cdot x^{(k)}
+                                \]
+                            </div>
+                            <br>ou, isolando \( x^{(k+1)}\):
+                            <div>
+                                \[
+                                x^{(k+1)} =  \left( D + L \right)^-1 \cdot \left( b - U \cdot x^{(k)} \right)
+                                \]
+                            </div>
+                            <br><br>Na forma iterativa, para cada variável \( x_i\), resolve-se a equação:
+                            <div>
+                                \[
+                                x_i^{(k+1)} = \frac{1}{a_{ii}}  \left( b_i - \sum_{j < i} a_{ij} x_j^{(k+1)} -  \sum_{j > i} a_{ij} x_j^{(k)}\right)
+                                \]
+                            </div>
+                            <br>Onde \( a_{ii}\) são os elementos da diagonal de \( A\), e os somatórios representam as contribuições das outras variáveis. Note que é usado \( x_j^{(k+1)}\) para valores já atualizados na iteração atual e \( x_j^{(k)}\)
+                            para valores das iterações anteriores.
+                            <br><br><strong>Critério de parada:</strong>
+                            <br>O método para quando atingir a condição \( erro < tol\), onde:
+                            <div>
+                                \[
+                                erro = \frac{max( |x^{(k+1)} - x^k| )}{max( |x^{k+1}| )}
+                                \]
+                            </div>
+                            <br>Ou até atingir o número de iterações máxima selecionado.
+                        </div>    
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading8">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                            Método 8: Interpolação de Lagrange
+                        </button>
+                    </h2>
+                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            A interpolação de Lagrange é um método para encontrar um polinômio que passa exatamente por um conjunto de pontos dados. Dado um conjunto de pontos \( (x_0, y_0), (x_1, y_1), ..., (x_n, y_n)\), deseja-se encontrar um polinômio
+                            \( P(x) \) que satisfaça \( P(x_i) = y_i\) para cada \( i \).
+                            <br><br>O polinômio é construído a partir de uma soma de termos, onde cada termo \( L_i(x) \) representa uma função que vale \( y_i \) em \( x_i \) e zero nos outros pontos \( x_j \) (para \( j \neq i \)). A fórmula para o polinômio 
+                            de Lagrange é:
+                            <div>
+                                \[
+                                P(x) = \sum_{i=0}^n y_i \cdot L_i(x) 
+                                \]
+                            </div>
+                            <br><br>Cada \( L_i(x) \) é uma função chamada de polinômio de base de Lagrange:
+                            <div>
+                                \[
+                                L_i(x)= \prod_{\substack{j=0 \\ j \neq i}}^{n} \frac{x - x_j}{x_i - x_j}
+                                \]
+                            </div>
+                            <br><br>Para se construir o polinômio, o valor de \( P(x) \) no ponto desejado, \( x_{intersection} \), é então obtido somando-se cada \( L_i(x) \) e multiplicando pelo valor de \( y_i \):
+                            <div>
+                                \[
+                                P(x_{intersection}) = \sum_{i=0}^n Li(x_{intersection}) \cdot y_i
+                                \]
+                            </div>
+                            <br><br>A interpolação de Lagrange garante que o polinômio final passa exatamente pelos pontos dados, pois cada \( L_i(x) \) anula todos os pontos \( x_j \) para \( j \neq i \), fazendo com que \( P(x) \) assuma o valor \( y_i \) em cada \( x_i \).
+                            Assim, o método constrói um polinômio único de grau \( n\) que satisfaz as condições fornecidas.
+                        </div>    
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading9">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                            Método 9: Interpolação de Newton-Gregory
+                        </button>
+                    </h2>
+                    <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método de interpolação de Newton-Gregory utiliza uma série de diferenças divididas para construir um polinômio que passa pelos pontos dados. Esse polinômio é incrementalmente formado usando uma fórmula recursiva que adiciona novos termos para cada 
+                            ordem de diferença dividida, sendo particularmente útil para interpolação em pontos espaçados de forma desigual.
+                            <br>A ideia central do método é calcular as diferenças divididas e usá-las para construir um polinômio interpolador na forma de Newton. O processo pode ser descrito em três etapas principais: cálculo das diferenças divididas, construção do polinômio e 
+                            avaliação do polinômio no ponto desejado.
+
+                            <br><br> <strong><h4>1. Diferenças divididas</h4></strong> 
+                            <br>Para um conjunto de pontos \( (x_0, y_0), (x_1, y_1), ..., (x_n, y_n)\), as diferenças divididas são calculadas com base nas diferenças entre os valores de \( y\) e as distâncias \( x\) correspondentes. Cada diferença dividida de ordem \( k\)
+                            representa a taxa de variação média de  \( f(x)\) em \( k + 1\) pontos sucessivos.
+                            <br><br>Essas diferenças divididas são definidas recursivamente como:
+                            <br>Primeira ordem de diferença dividida:
+                            <div>
+                                \[
+                                f[x_i, x_{i+1}] = \frac{y_{i+1} - y_i}{x_{i+1} - x_i}
+                                \]
+                            </div>
+                            <br>Segunda ordem:
+                            <div>
+                                \[
+                                f[x_i, x_{i+1}, x_{i+2}] = \frac{ f[x_{i+1}, x_{i+2}] - f[x_i, x_{i+1}] }{x_{i+2} - x_i}
+                                \]
+                            </div>
+                            <br>Em geral, a ordem \( k\) de diferença dividida é dada por:
+                            <div>
+                                \[
+                                f[x_i, x_{i+1}, ..., x_{i+k}] = \frac{ f[x_{i+1}, ..., x_{i+k}] - f[x_i, ..., x_{i+k-1}] }{x_{i+k} - x_i}
+                                \]
+                            </div>
+
+                            <br><br> <strong><h4>2. Construção do Polinômio de Newton-Gregory</h4></strong> 
+                            <br>O polinômio interpolador na forma de Newton é construído incrementalmente adicionando termos com cada ordem de diferença dividida. A fórmula do polinômio de Newton para interpolação é:
+                            <div>
+                                \[
+                                P(x) = f[x_0] + f[x_0, x_1](x - x_0) +  f[x_0, x_1, x_2](x - x_0)(x - x_1) + ... + f[x_0, x_1, ..., x_n](x - x_0)(x - x_1) ... (x - x_{n-1})
+                                \]
+                            </div>
+                            <br><br> <strong><h4>3. Avaliação do Polinômio</h4></strong>
+                            <br>O polinômio \( P(x)\) é então avaliado para o ponto desejado \( x_{intersection}\).
+                            <br><br>O método é particularmente eficiente para adicionar novos pontos, pois cada nova diferença dividida pode ser calculada apenas com a última coluna da tabela, sem precisar recalcular tudo.
+                        </div>    
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading10">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                            Método 10: Interpolação de Newton-Gregory Inversa
+                        </button>
+                    </h2>
+                    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método de Interpolação Inversa de Newton-Gregory é uma variação do método de interpolação de Newton. Aqui, o objetivo é encontrar o valor de \( x\) correspondente a um valor específico de \( y\). A abordagem é semelhante à interpolação direta, mas em vez de calcular as diferenças divididas baseadas nos valores de
+                            \( x\), usamos os valores de \( y\) como base, tratando-os como as variáveis independentes.
+
+                            <br><br> <strong><h4>1. Diferenças divididas</h4></strong> 
+                            <br>Para um conjunto de pontos \( (y_0, x_0), (y_1, x_1), ..., (y_n, x_n)\), as diferenças divididas inversas são calculadas usando as diferenças entre os valores de \( x\) e os valores de \( y\) correspondentes. Cada diferença dividida de ordem \( k\)
+                            representa a taxa de variação média de  \( g(y)\) em \( k + 1\) pontos sucessivos de \( y\).
+                            <br><br>Essas diferenças divididas são definidas recursivamente como:
+                            <br>Primeira ordem de diferença dividida:
+                            <div>
+                                \[
+                                g[y_i, y_{i+1}] = \frac{x_{i+1} - x_i}{y_{i+1} - y_i}
+                                \]
+                            </div>
+                            <br>Segunda ordem:
+                            <div>
+                                \[
+                                g[y_i, y_{i+1}, y_{i+2}] = \frac{ g[y_{i+1}, y_{i+2}] - g[y_i, y_{i+1}] }{y_{i+2} - y_i}
+                                \]
+                            </div>
+                            <br>Em geral, a ordem \( k\) de diferença dividida é dada por:
+                            <div>
+                                \[
+                                g[y_i, y_{i+1}, ..., y_{i+k}] = \frac{ g[y_{i+1}, ..., y_{i+k}] - g[y_i, ..., y_{i+k-1}] }{y_{i+k} - y_i}
+                                \]
+                            </div>
+
+                            <br><br> <strong><h4>2. Construção do Polinômio Inverso</h4></strong> 
+                            <br>O polinômio interpolador inverso é construído somando-se termos formados por cada ordem de diferença dividida inversa. A fórmula do polinômio de Newton inverso para interpolação é:
+                            <div>
+                                \[
+                                G(y) = g[y_0] + g[y_0, y_1](y - y_0) +  g[y_0, y_1, y_2](y - y_0)(y - y_1) + ... + g[y_0, y_1, ..., y_n](y - y_0)(y - y_1) ... (y - y_{n-1})
+                                \]
+                            </div>
+                            <br><br> <strong><h4>3. Avaliação do Polinômio</h4></strong>
+                            <br>O polinômio \( G(y)\) é então avaliado para o ponto desejado \( y_{intersection}\).
+                            <br><br>O método é vantajoso para estimar valores de \( x\) quando dados valores de \( y\), utilizando as diferenças divididas de forma semelhante à interpolação direta.
+                        </div>    
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading11">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                            Método 11: Extrapolação - Método dos Mínimos Quadrados
+                        </button>
+                    </h2>
+                    <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            método de extrapolação dos mínimos quadrados utiliza a técnica de ajuste de curvas para estimar valores fora do intervalo dos dados fornecidos. A abordagem é baseada na mínima soma dos quadrados dos erros (resíduos) entre os dados observados e a curva ajustada. O processo é descrito de maneira simples e 
+                            eficaz através de uma abordagem matricial.
+                            <br><br>O objetivo é ajustar um polinômio de grau \( n\) aos dados \( (x_i, y_i) \), de forma que minimiza a soma dos quadrados dos resíduos:
+                            <div>
+                                \[
+                                S = \sum_{i=1}^N(y_i - f(x_i))^2
+                                \]
+                            </div>
+                            <br>Onde \( f(x)\) é o polinômio que queremos ajustar.
+                            <br><br>Para resolver esse problema de forma eficiente, usamos a abordagem matricial dos mínimos quadrados. A ideia é encontrar os coeficientes \( a_0, a_1, \dots, a_n\) de um polinômio de grau \( n\) da forma:
+                            <div>
+                                \[
+                                y = a_0 + a_1x + a_2x^2 + a_nx^n
+                                \]
+                            </div>
+                            <br>Esse polinômio é ajustado aos dados usando a seguinte fórmula de mínimos quadrados.
+                            <br><br>Primeiro, construímos uma matriz \( V\) cujas colunas são as potências dos valores de \( x \):
+                            <div>
+                                \[
+                                V = 
+                                \begin{vmatrix}
+                                x_1^0 & x_1^1 & x_1^2 & \dots & x_1^n \\
+                                x_2^0 & x_2^1 & x_2^2 & \dots & x_2^n \\
+                                \vdots & \vdots & \vdots & \ddots & \vdots \\
+                                x_m^0 & x_m^1 & x_m^2 & \dots & x_m^n
+                                \end{vmatrix}
+                                \]
+                            </div>
+                            <br>onde cada linha corresponde a um ponto \( (x_i, y_i) \) e cada coluna representa uma potência de \( x\).
+                            <br><br>Com a matriz \( V\) formada, calculamos os coeficientes \( a_0, a_1, \dots, a_n\) utilizando a fórmula:
+                            <div>
+                                \[
+                                a = \left(V^TV\right)^{-1}V^Ty
+                                \]
+                            </div>
+                            <br>onde:
+                            <ul>
+                                <li>\( V^T\) é a transposta de \( V\)</li>
+                                <li>\( V^TV^{-1} \) é a inversa do produto \( V^TV \)</li>
+                                <li>\( y\) é o vetor coluna de \( y\) </li>
+                            </ul>
+                            <br>Esses coeficientes \( a\) formam o polinômio ajustado.
+                            <br><br>Uma vez ajustado o polinômio, podemos usar a fórmula para extrapolar valores de \( y\) para novos valores de \( x\). A extrapolação é feita substituindo \( x_{novo}\) no polinômio ajustado:
+                            <div>
+                                \[
+                                y_{extrapolado} = a_0 + a_1x_{novo} + a_2x_{novo}^2 + \dots + a_nx_{novo}^n
+                                \]
+                            </div>
+                            <br><br>O método é eficiente e bem aplicável para ajuste de curvas, especialmente quando se deseja extrapolar dados fora do intervalo original. A vantagem é que ele permite ajustar até polinômios de grau elevado de forma rápida e com boa precisão computacional.
+                        </div>    
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading12">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                            Método 12: Integração - Trapézio Composto
+                        </button>
+                    </h2>
+                    <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#metodosAccordion">
+                        <div class="accordion-body">
+                            O método do trapézio composto é uma técnica numérica simples e eficaz para aproximar a integral de uma função. Ele usa uma ideia básica de geometria: a área sob uma curva pode ser aproximada pela soma das áreas de trapézios.
+                            <br><br>O trapézio composto é uma extensão do método do trapézio simples. Ele é usado quando queremos calcular a integral em um intervalo maior, que pode ser dividido em vários subintervalos.
+                            <br>Suponha que queremos calcular a integral de \( f(x)\) no intervalo \( [a, b]\), mas com mais precisão. Em vez de usar apenas dois pontos (como no trapézio simples), o intervalo \( [a, b]\) é dividido em \( n \) subintervalos iguais.
+                            <br><ul>
+                                <li>A distância entre os pontos consecutivos será \( h = \frac{b-a}{n}\).</li>
+                                <li>A integral será a soma das áreas de vários trapézios, cada um calculado usando o trapézio simples</li>
+                            </ul>
+                            <br><br>A fórmula do trapézio composto é:
+                            <div>
+                                \[
+                                I_{composto} = \frac{h}{2} \left [ f(a) + 2 \sum_{i=1}^{n-1} f(x_i) + f(b) \right]
+                                \]
+                            </div>
+                            <br>Onde:
+                            <br>
+                            <ul>
+                                <li>\( h\) é a largura de cada subintervalo, \( h = \frac{b-a}{n}\).</li>
+                                <li>\( f(a)\) e \( f(b)\) são os valores da função nos extremos do intervalo \( [a, b]\).</li>
+                                <li>\( x_i\) são os pontos intermediários entre \( a \) e \( b \) onde a função será avaliada.</li>
+                            </ul>
+
+                            <br><br><h4><strong>Sumarizando:</strong></h4>
+                            <br>
+                            <ul>
+                                <li>O intervalo \( [a, b]\) é dividido em \( n \) subintervalos de igual tamanho. Quanto maior o número de subintervalos, mais precisa será a aproximação.</li>
+                                <li>A função \( f(x)\) é avaliada em vários pontos:</li>
+                                <ul>
+                                    <li>Nos extremos do intervalo \( [a, b]\).</li>
+                                    <li>Nos pontos intermediários \( (x_1, x_2, \dots, x_{n-1}) \)</li>
+                                </ul>
+                                <li>Para cada subintervalo, calcula-se a área do trapézio formado pelos pontos consecutivos. Em seguida, somamos as áreas de todos os trapézios.</li>
+                                <li>A soma das áreas dos trapézios fornece uma aproximação da integral da função.</li>
+                            </ul>
+                            
+
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div style="margin-top: 20px; margin-bottom: 100px;"></div>
+</body>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
