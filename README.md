@@ -13,12 +13,15 @@ This project dynamically implements numerical methods, providing a calculator fo
     git clone https://github.com/Daniel-Nunes-Stein/numeric-methods.git
 ```
 
-2. Install all dependencies:
+2. Navigate to the *metodos_numericos* directory
+ ```bash
+    cd path/to/metodos_numericos
+```
+
+3. Install all dependencies:
  ```bash
     pip install -r requirements.txt
 ```
-
-3. Navigate to the *metodos_numericos* directory
 
 4. Run the command to start the webapp:
 ```bash
