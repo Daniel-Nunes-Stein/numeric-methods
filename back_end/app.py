@@ -1,10 +1,15 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+import os
 from flask_cors import CORS
 from __init__ import calc_func, gauss_elimination, extrapolar, gauss_jacobi, gauss_seidel, inter_newton, inter_newton_inv, lagrange, bissection, newton_raphson, secante, newton_colis
 import numpy as np
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return send_from_directory(os.path.abspath('../'), 'index.html')
 
 @app.route('/api/bolzano', methods=['POST'])
 def bolzano():
@@ -189,4 +194,4 @@ def trapezio_flask():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
