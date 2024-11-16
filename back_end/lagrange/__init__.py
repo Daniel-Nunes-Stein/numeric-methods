@@ -1,1 +1,1 @@
-from main import lagrange
+from .main import lagrange

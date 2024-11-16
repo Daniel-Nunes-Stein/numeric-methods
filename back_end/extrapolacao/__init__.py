@@ -1,1 +1,1 @@
-from main import extrapolar
+from .main import extrapolar

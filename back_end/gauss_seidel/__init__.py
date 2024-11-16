@@ -1,1 +1,1 @@
-from main import gauss_seidel
+from .main import gauss_seidel

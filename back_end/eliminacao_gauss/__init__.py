@@ -1,1 +1,1 @@
-from main import gauss_elimination
+from .main import gauss_elimination

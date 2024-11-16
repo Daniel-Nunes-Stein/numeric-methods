@@ -1,1 +1,1 @@
-from main import gauss_jacobi
+from .main import gauss_jacobi

@@ -1,1 +1,1 @@
-from main import newton_colis
+from .main import newton_colis

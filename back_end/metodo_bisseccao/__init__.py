@@ -1,1 +1,1 @@
-from main import bissection
+from .main import bissection

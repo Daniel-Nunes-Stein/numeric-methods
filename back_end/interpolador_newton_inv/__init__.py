@@ -1,1 +1,1 @@
-from main import inter_newton_inv
+from .main import inter_newton_inv

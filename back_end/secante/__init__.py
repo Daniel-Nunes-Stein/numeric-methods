@@ -1,1 +1,1 @@
-from main import secante
+from .main import secante

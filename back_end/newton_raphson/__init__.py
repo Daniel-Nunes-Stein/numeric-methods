@@ -1,1 +1,1 @@
-from main import newton_raphson
+from .main import newton_raphson

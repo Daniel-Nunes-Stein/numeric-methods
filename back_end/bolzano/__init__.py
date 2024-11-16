@@ -1,1 +1,1 @@
-from main import calc_func
+from .main import calc_func
